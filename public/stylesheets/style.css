@@ -1,0 +1,76 @@
+body{
+    margin: 0;
+    background-color: #eeeeee;
+}
+
+#main-nav{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #232832;
+}
+
+#main-nav button{
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 18px;
+    color: #cccccc;
+    background-color: transparent;
+    border: none;
+}
+
+#main-nav button:hover{
+    color: #ffffff;
+    background-color: #282A35;
+}
+
+#asc-desc-selection{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#asc-desc-selection button{
+    font-size: 18px;
+    color: #282A35;
+    border: 1.5px solid #282A35;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#asc-desc-selection button:hover{
+    background-color: #cccccc;
+}
+
+#asc-desc-selection .selected{
+    background-color: #282A35;
+    color: #eeeeee;
+}
+#asc-desc-selection .selected:hover{
+    background-color: #282A35;
+    color: #eeeeee;
+}
+
+#ascending-btn{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#descending-btn{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#sorting-area{
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    height: 70vh;
+    border-bottom: 1px solid #666666;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#sorting-area div{
+    width: 0.6%;
+}
