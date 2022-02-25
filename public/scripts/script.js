@@ -3,7 +3,6 @@
 //ADD theme color button in the top right under main Nav
 //opacityEffect after successive clicks on an algo button
     // maybe make " let jEffectTimeout = " global , and clearTimeout(jEffectTimeout) in initialization
-//maybe make i global to remove async functions' parameters   (i = 1 for InsertionSort)
 
 
 
@@ -262,37 +261,35 @@ function merge(array1, array2){
 heapSortBtn.addEventListener("click", ()=>{
     initializeSort();
     visualizeArray();
-    //
+    heapSort(array.length - 1);
 });
 
-//get parent ---> indexParent = (indexChild-2)/2
-//get left Child ---> indexLeftChild = (indexParent*2) + 1
-//get right Child ---> indexRightChild = (indexParent*2) + 2
+function heapSort(lastIndex){
+    let j = 0
+    let index = j;
+    let jLoop = setInterval(()=>{
+        J_IterationEffect(index);
+        if(hasParent(index) && (array[index] > getParent(index) && asc) || (array[index] < getParent(index) && desc) ){
+            swap(index, getParentIndex(index));
+            index = getParentIndex(index);
+        }else{
+            j++;
+            if(j > lastIndex){
+                clearInterval(jLoop);
+                swap(0, lastIndex);
+                if(lastIndex - 1 > 0){
+                    heapSort(lastIndex - 1);
+                }
+            }else{
+                index = j;
+            }
+        }
+    }, 0); 
+}
 
-//has parent
-//has left child
-//has right child
-
-//get parent
-//get parent index
-
-//get left child
-//get left child index
-
-//get right child
-//get right child index
-
-//heapifyUp
-//heapifyDown
-
-
-
-
-
-
-
-
-
+function getParentIndex(index){return Math.floor((index - 1) / 2)}
+function hasParent(index){return index != 0}
+function getParent(index){return array[getParentIndex(index)]}
 
 //Bucket Sort ====================================================================
 
@@ -352,6 +349,7 @@ function swap(i, j){
     element_j.style.order = i;
     element_i.id = j;
     element_j.id = i;
+
     // let tempBackgroundColor = element_i.style.backgroundColor;
     // element_i.style.backgroundColor = element_j.style.backgroundColor;
     // element_j.style.backgroundColor = tempBackgroundColor;
@@ -377,7 +375,7 @@ function J_IterationEffect(j){
 //Sort Initialization
 function initializeSort(){
     clearSortingArea();
-    array = generateNewArray(10); //*******************************************************
+    array = generateNewArray(100); //*******************************************************
     asc = ascendingBtn.classList.contains("selected");
     desc = descendingBtn.classList.contains("selected");
 }
